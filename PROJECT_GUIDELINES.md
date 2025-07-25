@@ -25,7 +25,7 @@ lib/
 
 ## State Management
 
-- **Riverpod 2.x**만을 상태 관리 솔루션으로 사용합니다.
+- **Riverpod 2.x**만을 상태 관리 솔루션으로 사용합니다. (설치완료)
 - 복잡한 상태(API 호출, side effect)는 `AsyncNotifierProvider` 사용
 - 단순 로컬 상태는 `NotifierProvider` 사용
 - 1회성 비동기 작업은 `FutureProvider` 사용
@@ -105,12 +105,16 @@ lib/
 
 ---
 
-## Local Storage & Persistence
+## Firebase FCM 푸시 알림
+ - 알림기능이 필요할때는 이 Firebase FCM 사용
+---
 
-- 간단한 키-값 저장은 SharedPreferences 사용
-- 복잡한 로컬 DB는 Hive 또는 Isar 사용
-- 민감 정보는 flutter_secure_storage로 안전하게 저장
-- 네트워크 응답 캐시는 만료 전략 포함하여 적절히 관리
+## Flutter 로컬 데이터 저장 및 보안 관리
+
+- 간단한 키-값 저장은 SharedPreferences 사용 ( =localstorage와 동일한 개념 // APP용 )
+- 로컬 DB는 Hive 또는 Isar 사용하는데, 정말 복잡하거나 꼭 로컬 DB에 있으면 좋겠다 싶은 것이 있다면 추천해주고 승인하면 추가
+- 민감 정보는 flutter_secure_storage로 안전하게 저장 ( = JWT 같은 데이터 넣을 때 // 암호화)
+- 네트워크 응답 캐시는 만료 전략 포함하여 적절히 관리(캐시에 데이터가 있으면 API 없이 해당 캐시 사용): 캐시도 로직이 복잡하고 오래걸리는 경우만 추천해주고 승인하면 추가
 - 스토리지 실패 시 graceful fallback 구현
 
 ---
